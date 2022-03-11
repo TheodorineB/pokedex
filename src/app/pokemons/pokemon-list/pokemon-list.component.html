@@ -1,0 +1,17 @@
+<mat-list >
+  <mat-nav-list [scrollWindow]="true" infinite-scroll (scrolled)="onScroll()">
+  <mat-list-item *ngFor="let pokemon of pokemons" routerLink="/pokemon/{{ pokemon.id }}" routerLinkActive="router-link-active" class="item" >
+    <img matListAvatar src="../assets/img/sprites/{{ pokemon.id }}.png" alt="...">
+    <h3 matLine> {{ pokemon.name }} </h3>
+    <p matLine>
+      <span> {{ pokemon.id }} </span>
+      <span class="demo-2">. {{ pokemon.name }} </span>
+    </p>
+    <audio
+        controls
+        src="../assets/audio/{{ pokemon.id }}.mp3">
+            sound
+    </audio>
+  </mat-list-item>
+</mat-nav-list>
+</mat-list>

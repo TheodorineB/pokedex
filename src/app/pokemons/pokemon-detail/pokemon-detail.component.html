@@ -1,0 +1,35 @@
+<mat-card>
+  <button (click)="goBack()"></button>
+  <mat-grid-list cols="6" rowHeight="280px" colsHeight="200px">
+  <mat-grid-tile colspan="1" rowspan="1"></mat-grid-tile>
+  <mat-grid-tile colspan="2" rowspan="1">
+    <mat-list>
+      <img matListAvatar src="../assets/img/official-artwork/{{ pokemon?.id }}.png" alt="...">
+    </mat-list>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2" rowspan="1">
+    <mat-list>
+      <mat-list-item >{{pokemon?.name}}</mat-list-item>
+      <audio
+      controls
+      src="../assets/audio/{{ pokemon?.id }}.mp3">
+          sound
+    </audio>
+    <mat-icon></mat-icon>
+ <mat-chip-list *ngFor="let pok of pokemon?.types">
+   <mat-chip >{{pok}}</mat-chip>
+ </mat-chip-list>
+  <mat-list-item >Taille : {{pokemon?.height}}</mat-list-item>
+  <mat-list-item >Poids: {{pokemon?.weight}}</mat-list-item>
+    </mat-list>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="1" rowspan="1"></mat-grid-tile>
+  <mat-grid-tile colspan="1" rowspan="2"></mat-grid-tile>
+  <mat-grid-tile colspan="3" rowspan="2">
+    <mat-list>
+      <mat-list-item >{{pokemon?.description}}</mat-list-item>
+    </mat-list>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2" rowspan="2"></mat-grid-tile>
+  </mat-grid-list>
+</mat-card>
