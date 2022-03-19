@@ -13,12 +13,14 @@ import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { PokedexComponent } from './pokedex/pokedex.component';
 
 
 @NgModule({
   declarations: [
     PokemonListComponent,
-    PokemonDetailComponent
+    PokemonDetailComponent,
+    PokedexComponent
   ],
   imports: [
     CommonModule,

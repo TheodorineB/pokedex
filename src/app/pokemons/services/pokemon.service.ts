@@ -15,7 +15,9 @@ export class PokemonService {
 
    }
 
-
+   searchPokemons(offset:number,nom?:string):Observable<PagedData<Pokemon>>{
+    return this.Httpclient.get<PagedData<Pokemon>>(this.url+"/pokemons?limit="+offset+"&search="+nom);
+   }
 
    getPokemons(offset?:number):Observable<PagedData<Pokemon>>{
      return this.Httpclient.get<PagedData<Pokemon>>(this.url+"/pokemons?offset="+offset);

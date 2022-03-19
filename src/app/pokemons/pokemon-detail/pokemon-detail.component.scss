@@ -3,3 +3,42 @@ img {
   height: auto;
   margin-left: 25%;
 }
+
+.icon{
+  margin-left: 10px;
+}
+
+.image{
+  height: 50% !important;
+}
+
+mat-card{
+  height: 55% !important;
+}
+
+mat-grid-list{
+  height: 55% !important;
+}
+
+mat-list{
+  height: 55% !important;
+}
+
+mat-list-item{
+  margin-top: 5%;
+}
+
+mat-chip{
+
+}
+
+p {
+  max-width: 100%;
+  text-align: center;
+}
+
+.desc{
+  height: 70px !important;
+  width: 450px !important;
+  margin-left: 33%;
+}

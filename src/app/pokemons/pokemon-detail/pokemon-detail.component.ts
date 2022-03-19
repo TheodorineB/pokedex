@@ -11,7 +11,7 @@ import { Location } from '@angular/common';
 })
 export class PokemonDetailComponent implements OnInit {
 
-  id=Number(this.route.snapshot.paramMap.get('id'));
+  private id?:number;
 
   pokemon?:PokemonDetail;
 
@@ -19,11 +19,22 @@ export class PokemonDetailComponent implements OnInit {
   constructor(private pokemonService:PokemonService, private route:ActivatedRoute, private location:Location) { }
 
   ngOnInit(): void {
-    this.pokemonService.getPokemonById(this.id).subscribe(res=>{this.pokemon=res})
+    this.route.params.subscribe(param =>{
+      this.id=Number(this.route.snapshot.paramMap.get('id'));
+      if(this.id)
+      this.pokemonService.getPokemonById(this.id).subscribe(res=>{this.pokemon=res});
+    })
+
   }
 
   goBack(): void{
     this.location.back();
+  }
+
+  playSound() {
+    let sound = new Audio;
+    sound.src = "../assets/audio/" + this.id + ".mp3"
+    sound.play()
   }
 
 }

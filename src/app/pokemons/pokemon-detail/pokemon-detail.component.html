@@ -1,35 +1,36 @@
-<mat-card>
-  <button (click)="goBack()"></button>
+<mat-card *ngIf="pokemon">
+  <mat-icon (click)="goBack()">replay</mat-icon>
   <mat-grid-list cols="6" rowHeight="280px" colsHeight="200px">
   <mat-grid-tile colspan="1" rowspan="1"></mat-grid-tile>
   <mat-grid-tile colspan="2" rowspan="1">
     <mat-list>
-      <img matListAvatar src="../assets/img/official-artwork/{{ pokemon?.id }}.png" alt="...">
+        <mat-list-item class="image">
+      <img src="../assets/img/official-artwork/{{ pokemon?.id }}.png" alt="...">
+      </mat-list-item>
+      <mat-list-item class="image">
+       <p matLine> No. {{ pokemon?.id | number:'3.0' }} </p>
+      </mat-list-item>
     </mat-list>
   </mat-grid-tile>
   <mat-grid-tile colspan="2" rowspan="1">
     <mat-list>
-      <mat-list-item >{{pokemon?.name}}</mat-list-item>
+      <mat-list-item  >{{pokemon?.name}}<mat-icon class="icon" (click)="playSound()">play_circle_outline</mat-icon></mat-list-item>
       <audio
-      controls
+      autoplay
       src="../assets/audio/{{ pokemon?.id }}.mp3">
           sound
     </audio>
-    <mat-icon></mat-icon>
- <mat-chip-list *ngFor="let pok of pokemon?.types">
-   <mat-chip >{{pok}}</mat-chip>
+<mat-list-item>
+ <mat-chip-list >
+   <mat-chip *ngFor="let pok of pokemon?.types" >{{pok}}</mat-chip>
  </mat-chip-list>
-  <mat-list-item >Taille : {{pokemon?.height}}</mat-list-item>
-  <mat-list-item >Poids: {{pokemon?.weight}}</mat-list-item>
+</mat-list-item>
+  <mat-list-item >Taille : {{pokemon?.height | number:'1.1'}} m</mat-list-item>
+  <mat-list-item >Poids: {{pokemon?.weight | number:'1.1'}} kg</mat-list-item>
     </mat-list>
   </mat-grid-tile>
-  <mat-grid-tile colspan="1" rowspan="1"></mat-grid-tile>
-  <mat-grid-tile colspan="1" rowspan="2"></mat-grid-tile>
-  <mat-grid-tile colspan="3" rowspan="2">
-    <mat-list>
-      <mat-list-item >{{pokemon?.description}}</mat-list-item>
-    </mat-list>
+  <mat-grid-tile colspan="4" rowspan="2" class="desc">
+ {{pokemon?.description}}
   </mat-grid-tile>
-  <mat-grid-tile colspan="2" rowspan="2"></mat-grid-tile>
   </mat-grid-list>
 </mat-card>

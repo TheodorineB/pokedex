@@ -19,10 +19,20 @@ export class PokemonListComponent implements OnInit {
   }
 
 
-  onScroll(){
+  onScroll():void{
     if( this.sum < 151){
       this.sum+=10;
       this.pokemonService.getPokemons(this.sum).subscribe(res => {this.pokemons = this.pokemons.concat(res.data);});
+    }
+  }
+
+  searchPok(terme:string):void{
+    console.log(terme);
+
+    if(terme == '') {
+      this.pokemonService.getPokemons(this.sum).subscribe(res=>{this.pokemons=res.data});
+    }else {
+      this.pokemonService.searchPokemons(151,terme).subscribe(res=>{this.pokemons=res.data});
     }
   }
 
