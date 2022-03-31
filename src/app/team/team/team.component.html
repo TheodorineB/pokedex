@@ -1,0 +1,30 @@
+<mat-list>
+  <mat-grid-list class="nav" cols="2">
+    <mat-grid-tile>
+      <mat-nav-list class="nav">
+        <mat-list-item class="item"  *ngFor="let poke of tabPokemons">
+        <div class="item"> <img src="../assets/img/official-artwork/{{ poke?.id }}.png" alt="..."/></div>
+        <span class="demo-2"> {{ poke.name }} </span>
+        <button class="supp" (click)="deletePokemonFromTeam(poke.id)">Supprimer</button>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-list>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Recherche pokemon</mat-label>
+          <input matInput #searchBox type="text" (input)="searchPok(searchBox.value)" >
+        </mat-form-field>
+        <mat-nav-list class="nav" [scrollWindow]="false" infinite-scroll (scrolled)="onScroll()">
+        <mat-list-item *ngFor="let pokemon of pokemons" (click)="addPokemonToTeam(pokemon.id)" class="item" >
+          <img matListAvatar src="../assets/img/sprites/{{ pokemon.id }}.png" alt="...">
+          <p matLine>
+            <span> {{ pokemon.id }} </span>
+            <span class="demo-2">. {{ pokemon.name }} </span>
+          </p>
+        </mat-list-item>
+      </mat-nav-list>
+      </mat-list>
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-list>

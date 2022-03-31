@@ -1,0 +1,55 @@
+mat-nav-list{
+  height: 65vh;
+  overflow: auto;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+
+mat-grid-list {
+  margin-top: 25px !important;
+}
+
+mat-grid-tile {
+margin-top: 5% !important;
+
+}
+
+
+.button {
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  margin-left: 10px;
+  cursor: pointer;
+  border: none;
+}
+
+
+.item {
+  height: 85px !important;
+}
+
+img {
+  max-width: 80px!important;
+  max-height: 80px!important;
+  width: 80px;
+  height: 80px;
+ }
+
+ .supp{
+   margin-left: 20px;
+   z-index: 99;
+  width: 75px;
+  height: 40px;
+  background: linear-gradient(45deg, #B388EB, #8093F1);
+  border-radius: 20px;
+  color: #FFF;
+  font-size: 10px;
+  letter-spacing: 1px;
+  font-weight: 200;
+ }
